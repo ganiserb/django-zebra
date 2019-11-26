@@ -32,9 +32,9 @@ Usage
 4. (optional) Add in the webhook urls:
 
 	```
-	urlpatterns += patterns('',          
+	urlpatterns += [
 		url(r'zebra/',   include('zebra.urls',  namespace="zebra",  app_name='zebra') ),
-	)
+	]
 	```
 
 5. Enjoy easy billing.

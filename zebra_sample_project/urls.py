@@ -1,6 +1,6 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls.defaults import include, url
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'zebra/',   include('zebra.urls',  namespace="zebra",  app_name='zebra') ),
     url(r'',         include('marty.urls',  namespace="marty",  app_name='marty') ),
-)
+]

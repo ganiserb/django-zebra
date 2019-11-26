@@ -49,9 +49,9 @@ This is optional and only if you wish to use zebra's webhook signals.
 
 ::
 
-  urlpatterns += patterns('',          
+  urlpatterns += [
     url(r'zebra/', include('zebra.urls', namespace="zebra", app_name='zebra')),
-  )
+  ]
 
 
 Quick Start
@@ -113,7 +113,7 @@ Then in your models file simply update your model in inherit from
 ``zebra.models.StripeCustomer`` abstract base class::
 
     from zebra.models import StripeCustomer
-    
+
     class YourCustomerModel(StripeCustomer):
         ...
 
@@ -132,10 +132,10 @@ your customer class and access the ``stripe_customer`` attribute.
     >>> c.id
     >>> c.stripe_customer
     <Customer customer id=cus_A0FULkVQwzwlUz at 0x101b2d7d0> JSON: {
-      "account_balance": 0, 
-      "created": 1329775998, 
-      "id": "cus_A0FULkVQwzwlUz", 
-      "livemode": false, 
+      "account_balance": 0,
+      "created": 1329775998,
+      "id": "cus_A0FULkVQwzwlUz",
+      "livemode": false,
       "object": "customer"
     }
     >>> c.id
@@ -164,20 +164,20 @@ First we must give our customer a credit card::
     >>> stripe_cust.card = card
     >>> stripe_cust.save()
     <Customer customer id=cus_A0FULkVQwzwlUz at 0x101b2d7d0> JSON: {
-      "account_balance": 0, 
+      "account_balance": 0,
       "active_card": {
-        "country": "US", 
-        "cvc_check": "pass", 
-        "exp_month": 3, 
-        "exp_year": 2013, 
-        "last4": "4242", 
-        "name": "John Doe", 
-        "object": "card", 
+        "country": "US",
+        "cvc_check": "pass",
+        "exp_month": 3,
+        "exp_year": 2013,
+        "last4": "4242",
+        "name": "John Doe",
+        "object": "card",
         "type": "Visa"
-      }, 
-      "created": 1329775998, 
-      "id": "cus_A0FULkVQwzwlUz", 
-      "livemode": false, 
+      },
+      "created": 1329775998,
+      "id": "cus_A0FULkVQwzwlUz",
+      "livemode": false,
       "object": "customer"
     }
 
@@ -190,27 +190,27 @@ Now we can charge John $10 for that pizza we split::
     ... description='the money you owed me for the pizza'
     ... )
     <Charge charge id=ch_lCSjHD3hAxXcjO at 0x101e0ff10> JSON: {
-      "amount": 1000, 
+      "amount": 1000,
       "card": {
-        "country": "US", 
-        "cvc_check": "pass", 
-        "exp_month": 3, 
-        "exp_year": 2013, 
-        "last4": "4242", 
-        "name": "John Doe", 
-        "object": "card", 
+        "country": "US",
+        "cvc_check": "pass",
+        "exp_month": 3,
+        "exp_year": 2013,
+        "last4": "4242",
+        "name": "John Doe",
+        "object": "card",
         "type": "Visa"
-      }, 
-      "created": 1329776973, 
-      "currency": "usd", 
-      "customer": "cus_A0FULkVQwzwlUz", 
-      "description": "the money you owed me", 
-      "disputed": false, 
-      "fee": 59, 
-      "id": "ch_lCSjHD3hAxXcjO", 
-      "livemode": false, 
-      "object": "charge", 
-      "paid": true, 
+      },
+      "created": 1329776973,
+      "currency": "usd",
+      "customer": "cus_A0FULkVQwzwlUz",
+      "description": "the money you owed me",
+      "disputed": false,
+      "fee": 59,
+      "id": "ch_lCSjHD3hAxXcjO",
+      "livemode": false,
+      "object": "charge",
+      "paid": true,
       "refunded": false
     }
 
@@ -222,7 +222,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
    :glob:
-   
+
    *
    zebra/index
 
